@@ -293,6 +293,9 @@
                 <li class="mb1"><a href="#">Example</a>
                     <span class="hidden-dropdown" style="display: none;outline: 0;">HI</span>
                 </li>
+                <li class="mb1"><a href="#">Example</a>
+                    <span class="hidden-dropdown" style="display: none;outline: 0;">HI</span>
+                </li>
             </ul>
             <h2 class="h3 black"># Experience</h2>
             <ul class="list-reset mb4">
@@ -303,15 +306,13 @@
             </ul>
         </div>
     <script type="text/javascript">
-        var allSpan = document.getElementsByTagName('ul');
+        var allSpan = document.getElementsByTagName('li');
 
         for(var x = 0; x < allSpan.length; x++)
         {
             allSpan[x].onclick=function()
             {
-                if(this.parentNode)
-                {
-                    var childList = this.parentNode.getElementsByClassName('hidden-dropdown');
+                    var childList = this.getElementsByClassName('hidden-dropdown');
                     for(var y = 0; y< childList.length;y++)
                     {
                         var currentState = childList[y].style.display;
@@ -324,7 +325,6 @@
                             childList[y].style.display="none";
                         }
                     }
-                }
             }
         }
     </script>
