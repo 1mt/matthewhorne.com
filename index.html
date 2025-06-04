@@ -243,6 +243,11 @@
         a {
             color: #1a00f2;
             text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.7;
         }
 
         .container {
@@ -298,6 +303,64 @@
             display: none !important;
         }
 
+        details {
+            margin-bottom: 0.5rem;
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::before {
+            content: "▸";
+            margin-right: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        details[open] {
+            margin-bottom: 1rem;
+        }
+
+        .project-content {
+            padding: 1rem 0 0 1.5rem;
+            background: #F6F0EE;
+        }
+
+        summary:hover {
+            text-decoration: underline;
+        }
+
+        summary:focus {
+            outline: 2px solid #1a00f2;
+            outline-offset: 2px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #F6F0EE;
+            border-radius: 2px;
+            font-size: 0.875rem;
+        }
+
         @media (min-width: 52em) {
             .container {
                 padding: 3rem;
@@ -346,14 +409,37 @@
         </p>
         <div class="flex mb4">
             <a class="mr3" href="https://github.com/1mt" target="_blank">Github</a>
-            <a class="mr3" href="mailto:matthorne@outlook.com">Email</a>
+            <a class="mr3" href="mailto:precise.velvet_8s@icloud.com">Email</a>
             <a class="mr3" href="matthewhorne-cv.pdf" target="_blank">My CV</a>
             <a class="mr3" href="https://www.linkedin.com/in/matthew-h-648455b6/" target="_blank">LinkedIn</a>
         </div>
+        <h2 class="h3 black"># Skills</h2>
+        <div class="skills">
+            <span class="skill-tag">Android</span>
+            <span class="skill-tag">iOS</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">Kotlin Multiplatform</span>
+            <span class="skill-tag">SwiftUI</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Clojure</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Vue.js</span>
+            <span class="skill-tag">Three.js</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">DynamoDB</span>
+        </div>
         <h2 class="h3 black"># Projects</h2>
-        <ul class="list-inside p0 mt0 mb4">
-            <li class="mb1"><a href="javascript:;">British Airways Android App</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
+        <div class="p0 mt0 mb4">
+            <details>
+                <summary>British Airways Android App</summary>
+                <div class="project-content">
                     <div style="text-align:center;display:block;">
                         <a href="https://www.britishairways.com/en-gb/information/checking-in-and-boarding/ba-on-your-mobile" target="_blank">Website</a>
                     </div>
@@ -361,12 +447,31 @@
                     Matthew has worked with British Airways during his time at AND Digital to help maintain and deliver
                     new features to their app. Particularly focusing on functionality to improve customer experience
                      during COVID times.
-                </span>
-            </li>
-            <li class="mb1"><a href="javascript:;">XLN Sales App</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
-                    <video width="216" height="468" style="display:block; margin: 0 auto;" playsinline autoplay muted loop>
-                        <source src="xln.m4v" type="video/mp4">
+                </div>
+            </details>
+            <details>
+                <summary>CoinWizard - Cryptocurrency Portfolio Tracker</summary>
+                <div class="project-content">
+                    <div style="text-align:center;display:block;">
+                        <a href="https://apps.apple.com/ch/app/coinwizard/id6743374338?l=en-GB" target="_blank">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.mattsofttwoone.coinwizard.android&hl=en_GB" target="_blank">Google Play</a>
+                    </div>
+                    <br>
+                    A sophisticated cryptocurrency tracking and portfolio management app built with Kotlin Multiplatform,
+                    delivering a native experience on both iOS and Android from a single codebase. Features real-time
+                    market data via WebSocket connections, professional-grade interactive charts with technical indicators
+                    (SMA, EMA, RSI, MACD), multi-portfolio management with P&L calculations, and smart price alerts with
+                    push notifications.
+                    <br><br>
+                    Built using Kotlin Multiplatform (70%+ code sharing), Jetpack Compose & SwiftUI for native UI,
+                    SQLDelight for persistence, Ktor for networking, and Clean Architecture with MVVM. Includes custom
+                    high-performance chart rendering engine, WebSocket connection pooling, and background service
+                    implementation for both platforms while maintaining 60fps performance.
+                </div>
+            </details>
+            <details>
+                <summary>XLN Sales App</summary>
+                <div class="project-content">
+                    <video width="216" height="468" style="display:block; margin: 0 auto;" playsinline muted loop data-src="xln.m4v">
                         Your browser does not support the video tag.
                     </video>
                     <br>
@@ -375,10 +480,11 @@
                     an agent to assess which prospective clients are most valuable and/or most likely to have a lead. It
                     also allows agents to edit and upload
                     contracts on the go. Built using android and firebase.
-                </span>
-            </li>
-            <li class="mb1"><a href="javascript:;">Volcano Escape</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
+                </div>
+            </details>
+            <details>
+                <summary>Volcano Escape</summary>
+                <div class="project-content">
                     <div style="text-align:center;display:block;">
                         <a href="https://github.com/1mt/Volcano-Escape" target="_blank">Github</a> · <a class="mr3"
                             href="https://volcanoescape.github.io/" target="_blank">Play (chrome only)</a>
@@ -387,12 +493,12 @@
                     Volcano Escape is a web-based game built with three.js. The aim of the game is to escape from the
                     volcano before the ever-rising
                     lava swallows you up.
-                </span>
-            </li>
-            <li class="mb1"><a href="javascript:;">Meetings App</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
-                    <video width="216" height="468" style="display:block; margin: 0 auto;" playsinline autoplay muted loop>
-                        <source src="mehmet.mp4" type="video/mp4">
+                </div>
+            </details>
+            <details>
+                <summary>Meetings App</summary>
+                <div class="project-content">
+                    <video width="216" height="468" style="display:block; margin: 0 auto;" playsinline muted loop data-src="mehmet.mp4">
                         Your browser does not support the video tag.
                     </video>
                     <br>
@@ -403,28 +509,31 @@
                     The "Mehmet" app is a meetings app. Its primary use case is to manage when/if participants are
                     available for a meeting and then resolve
                     conflicts. Built using Android and Firebase.
-                </span>
-            </li>
-            <li class="mb1"><a href="javascript:;">Paint 2.0</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
+                </div>
+            </details>
+            <details>
+                <summary>Paint 2.0</summary>
+                <div class="project-content">
                     <div style="text-align:center;display:block;">
                         <a href="https://github.com/1mt/Paint" target="_blank">Github</a>
                     </div>
                     <br>
                     Paint is a drawing application written from scratch in C++.
-                </span>
-            </li>
-            <li class="mb1"><a href="javascript:;">Maze Generator And Solver</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
+                </div>
+            </details>
+            <details>
+                <summary>Maze Generator And Solver</summary>
+                <div class="project-content">
                     <img src="maze_screenshot.png" style="display:block; margin: 0 auto;" height="211.666666667" width="213.666666667"> 
                     <br>
                     An application written in Clojure which features a maze generator and a solver. It works on a client server
                     based model. The client can request mazes of different sizes and request solved versions. This maze/s are 
                     presented to the user using an eye pleasing GUI.
-                </span>
-            </li>
-            <li class="mb1"><a href="javascript:;">Plain English Programming Language</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
+                </div>
+            </details>
+            <details>
+                <summary>Plain English Programming Language</summary>
+                <div class="project-content">
                     <div style="text-align:center;display:block;">
                         <a href="https://github.com/1mt/PlainEnglish" target="_blank">Github</a>
                     </div>
@@ -432,10 +541,11 @@
                     Plain english a an esoteric programming language which attempts to be similar to natural language.
                     It is written using ANTLR and compiles
                     to JavaScript.
-                </span>
-            </li>
-            <li class="mb1"><a href="javascript:;">Lyrics Generator</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
+                </div>
+            </details>
+            <details>
+                <summary>Lyrics Generator</summary>
+                <div class="project-content">
                     <div style="text-align:center;display:block;">
                         <a href="https://github.com/1mt/Lyrics-Gen-Assignment" target="_blank">Github</a>
                     </div>
@@ -446,29 +556,32 @@
                     We used multiple different models, BERT and GPT-2(fine-tuned and vanilla). We also implemented
                     rhyming.
                     We then took these different implementations and compared and evaluated them.
-                </span>
-            </li>
-            <li class="mb1"><a href="javascript:;">Pairs Trading Using ML</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
+                </div>
+            </details>
+            <details>
+                <summary>Pairs Trading Using ML</summary>
+                <div class="project-content">
                     The goal of this project was to create a system that could profitably trade different
                     securities(stocks, commodities, forex, cryptocurrencies etc). I looked at four different
                     implementations,
                     three of which had already been proposed in academic papers and one which was my own implementation
                     using machine learning. The project was built using Python and Tensorflow.
-                </span>
-            </li>
-            <li class="mb1"><a href="javascript:;">Crypto Currency Trading Bot</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
+                </div>
+            </details>
+            <details>
+                <summary>Crypto Currency Trading Bot</summary>
+                <div class="project-content">
                     This project includes a full suite of tools needed to run and maintain this crypto currency trading bot.
                     The goal of the project is to implement a crypto currency trading strategy that I created and to have it run
                     24/7. It features a special interface to monitor market conditions on different exchanges. It has
                     a module to run the strategy, which continuously monitors the market for trading opportunities and places
                     orders depending on a set of conditions. And finally is a integration with Google Stackdriver and also status
                     updates forwarded to a Telegram channel.
-                </span>
-            </li>
-            <li class="mb1"><a href="javascript:;">Restaurant Management System</a>
-                <span class="hidden-dropdown" style="display: none;outline: 0;">
+                </div>
+            </details>
+            <details>
+                <summary>Restaurant Management System</summary>
+                <div class="project-content">
                     <div style="text-align:center;display:block;">
                         -- Work in progress --
                     </div>
@@ -480,42 +593,42 @@
                     for him. The application works across desktop and mobile, built on nodejs, vue and dynamodb. I'm
                     currently working on scaling the application
                     to multiple clients.
-                </span>
-            </li>
-        </ul>
+                </div>
+            </details>
+        </div>
         <h2 class="h3 black"># Experience</h2>
         <ul class="list-reset mb4">
             <li class="flex items-center mb1">
-                <span class="grey mr2" >Present</span><a href="#">AND Digital</a>
+                <span class="grey mr2" style="min-width: 4.5rem;">2022 - Now</span><a href="#">AND Digital - Mobile Developer</a>
             </li>
             <li class="flex items-center mb1">
-                <span class="grey mr2" style="padding-right: 29px;">2021</span><a href="#">Team Null (Backend Developer)</a>
+                <span class="grey mr2" style="min-width: 4.5rem;">2021</span><a href="#">Team Null - Backend Developer</a>
             </li>
             <li class="flex items-center mb1">
-                <span class="grey mr2" style="padding-right: 29px;">2020</span><a href="https://llamadigital.co.uk/">Llama Digital (Android Developer)</a>
+                <span class="grey mr2" style="min-width: 4.5rem;">2020</span><a href="https://llamadigital.co.uk/">Llama Digital - Android Developer</a>
             </li>
             <li class="flex items-center mb1">
-                <span class="grey mr2" style="padding-right: 29px;">2016</span><a href="https://www.plus.net/">Plusnet (Work Placement)</a>
+                <span class="grey mr2" style="min-width: 4.5rem;">2016</span><a href="https://www.plus.net/">Plusnet - Work Placement</a>
             </li>
         </ul>
     </div>
-    <script type="text/javascript">
-        var allSpan = document.getElementsByTagName('li');
-
-        for (var x = 0; x < allSpan.length; x++) {
-            allSpan[x].onclick = function () {
-                var childList = this.getElementsByClassName('hidden-dropdown');
-                for (var y = 0; y < childList.length; y++) {
-                    var currentState = childList[y].style.display;
-                    if (currentState == "none") {
-                        childList[y].style.display = "block";
-                    }
-                    else {
-                        childList[y].style.display = "none";
+    <script>
+        // Lazy load videos when details are opened
+        document.querySelectorAll('details').forEach(detail => {
+            detail.addEventListener('toggle', function() {
+                if (this.open) {
+                    const video = this.querySelector('video[data-src]');
+                    if (video && !video.src) {
+                        const source = document.createElement('source');
+                        source.src = video.dataset.src;
+                        source.type = 'video/mp4';
+                        video.appendChild(source);
+                        video.load();
+                        video.play();
                     }
                 }
-            }
-        }
+            });
+        });
     </script>
 </body>
 
